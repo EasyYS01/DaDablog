@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+  <title>大大博客 - <%=news.title%></title>
+  <meta name="keywords" content="<%=news.key%>" />
+  <meta name="description" content="<%=news.introduce%>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/base.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <link href="css/m.css" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon.ico">
+<script src="js/jquery-2.1.1.min.js"></script>
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<script>
+window.onload = function ()
+{
+	var oH2 = document.getElementsByTagName("h2")[0];
+	var oUl = document.getElementsByTagName("ul")[0];
+	oH2.onclick = function ()
+	{
+		var style = oUl.style;
+		style.display = style.display == "block" ? "none" : "block";
+		oH2.className = style.display == "block" ? "open" : ""
+	}
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="tophead">
+    <div class="logo"><a href="/">大大博客</a></div>
+    <div id="mnav">
+      <h2><span class="navicon"></span></h2>
+      <ul>
+        <li><a href="/index.html">网站首页</a></li>
+        <li><a href="/about.html">关于我</a></li>
+        <li><a href="/list.html">学无止境</a></li>
+        <li><a href="/info.html">个人技术栈</a></li>
+        <li><a href="/gbook.html">留言</a></li>
+      </ul>
+    </div>
+    <nav class="topnav" id="topnav">
+      <ul>
+        <li><a href="index.html">网站首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="list.html">学无止境</a></li>
+        <li><a href="info.html">个人技术栈</a></li>
+        <li><a href="gbook.html">留言</a></li>
+        <li class="text" style="cursor:pointer;" onclick="textclick()">点我开启文字特效</li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<article>
+  <h1 class="t_nav"><span>您现在的位置是：首页 > <%=news.class%> > <%=news.title%></span><a href="/index.html" class="n1">网站首页</a></h1>
+  <div class="infos">
+    <div class="newsview">
+      <h3 class="news_title"><%=news.title%></h3>
+      <div class="news_author"><span class="au01"><a href="mailto:1786764838@qq.com">大大</a></span><span class="au02"><%=news.time%></span><span class="au03">共<b><%=news.click%></b>人围观</span></div>
+      <div class="tags"><%for(var t in Label){%><a href="/Label?id=<%=Label[t].xvhao%>" target="_blank"><%=Label[t].Label%></a> &nbsp; <%}%></div>
+
+      <div class="news_infos">
+      <%=news.content%>
+      </div>
+
+    </div>
+    <div class="share"> </div>
+    <div class="nextinfo">
+    </div>
+    <div class="otherlink">
+      <h2>相关文章</h2>
+      <ul>
+        <%for(var a in guding){%>
+
+        <li><a href="page?id=<%=guding[a]._id%>" title="<%=guding[a].title%>"><%=guding[a].title%></a></li>
+        <%}%>
+      </ul>
+    </div>
+
+  </div>
+  <div class="sidebar">
+    <div class="search">
+      <!--<form action="/e/search/index.php" method="post" name="searchform" id="searchform">-->
+        <!--<input name="keyboard" id="keyboard" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">-->
+        <!--<input name="show" value="title" type="hidden">-->
+        <!--<input name="tempid" value="1" type="hidden">-->
+        <!--<input name="tbname" value="news" type="hidden">-->
+        <!--<input name="Submit" class="input_submit" value="搜索" type="submit">-->
+      <!--</form>-->
+    </div>
+    <div class="lmnav">
+      <h2 class="hometitle">栏目导航</h2>
+      <ul class="navbor">
+        <li><a href="#">关于我</a></li>
+        <li><a href="list.html">学无止境</a>
+          <ul>
+            <%for(var e in classtitle){%>
+            <%if(classtitle[e].title.indexOf("专用") > 0 ){%>
+
+            <%}else{%>
+            <li><a href="/class?id=<%=classtitle[e]._id%>"><%=classtitle[e].title%></a></li>
+            <%}%>
+
+           <%}%>
+            <li><a href="/class?id=5be3e34eba8c6655af56ab1b%>">专题</a></li>
+          </ul>
+        </li>
+        <li><a href="#">慢生活</a></li>
+      </ul>
+    </div>
+    <div class="paihang">
+      <h2 class="hometitle">点击排行</h2>
+      <ul>
+        <%for(var y in phb){%>
+        <li><b><a href="/page?id=<%=phb[y]._id%>" target="_blank"><%=phb[y].title%></a></b>
+          <p><i><img src="<%=phb[y].img%>" width="100" height="90"></i><%=phb[y].introduce%></p>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+    <div class="cloud">
+      <h2 class="hometitle">标签云</h2>
+      <ul>
+        <%for(var t in biaoqian){%>
+        <a href="/"><%=biaoqian[t].title%></a>
+        <%}%>
+      </ul>
+    </div>
+
+    <div class="ad" id="left_flow2"> <img src="images/ad.jpg"> </div>
+  </div>
+</article>
+<footer>
+  <p>Design by <a href="/">大大博客</a> <a href="/"></a></p>
+</footer>
+<script src="js/nav.js"></script> 
+<script type="text/javascript">
+jQuery.noConflict();
+jQuery(function() { 
+    var elm = jQuery('#left_flow2'); 
+    var startPos = jQuery(elm).offset().top; 
+    jQuery.event.add(window, "scroll", function() { 
+        var p = jQuery(window).scrollTop(); 
+        jQuery(elm).css('position',((p) > startPos) ? 'fixed' : ''); 
+
+        jQuery(elm).css('top',((p) > startPos) ? '0' : '');
+    }); 
+});
+function HTMLDecode ( input ) { var converter = document.createElement("DIV"); converter.innerHTML = input; var output = converter.innerText; converter = null; return output; }
+var html=jQuery('.news_infos').html();
+document.getElementsByClassName('news_infos')[0].innerHTML=HTMLDecode(html);
+
+</script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.moatext-min.js"></script>
+<script type="text/javascript" src="js/text.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>

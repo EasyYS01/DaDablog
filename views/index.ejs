@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>首页_大大博客 - 一个走在前端之路的个人博客网站</title>
+<meta name="keywords" content="个人博客,大大个人博客,前端,前端博客" />
+<meta name="description" content="大大博客，是一个一个走在前端之路的个人博客网站，提供前端最新技术！" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/base.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
+<link href="css/m.css" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon.ico">
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<script>
+
+</script>
+</head>
+<body>
+<header>
+  <div class="tophead">
+    <div class="logo"><a href="/">大大博客</a></div>
+    <div id="mnav">
+      <h2><span class="navicon"></span></h2>
+      <ul>
+        <li><a href="index.html">网站首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="list.html">学无止境</a></li>
+        <li><a href="info.html">个人技术栈</a></li>
+        <li><a href="gbook.html">留言</a></li>
+      </ul>
+    </div>
+    <nav class="topnav" id="topnav">
+      <ul>
+        <li><a href="index.html">网站首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="list.html">学无止境</a></li>
+        <li><a href="info.html">个人技术栈</a></li>
+        <li><a href="gbook.html">留言</a></li>
+        <li class="text" style="cursor:pointer;" onclick="textclick()">点我开启文字特效</li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="picshow">
+  <ul>
+    <li><a href="/"><i><img src="images/Notice/b01.jpg"></i>
+      <div class="font">
+        <h3>大大博客</h3>
+      </div>
+      </a></li>
+    <li><a href="/"><i><img src="images/Notice/b02.jpg"></i>
+      <div class="font">
+        <h3>大大博客</h3>
+      </div>
+      </a></li>
+    <li><a href="/"><i><img src="images/Notice/b03.jpg"></i>
+      <div class="font">
+        <h3>大大博客</h3>
+      </div>
+      </a></li>
+    <li><a href="/"><i><img src="images/Notice/b04.jpg"></i>
+      <div class="font">
+        <h3>大大博客</h3>
+      </div>
+      </a></li>
+    <li><a href="/"><i><img src="images/Notice/b05.jpg"></i>
+      <div class="font">
+        <h3>大大博客</h3>
+      </div>
+      </a></li>
+  </ul>
+</div>
+<article>
+  <div class="blogs">
+    <%for(var i in Article){%>
+    <%if(i==14){break;}%>
+    <li> <span class="blogpic"><a href="/page?id=<%=Article[i]._id%>"><img src="<%=Article[i].img%>"></a></span>
+      <h3 class="blogtitle"><a href="/page?id=<%=Article[i]._id%>"><%=Article[i].title%></a></h3>
+      <div class="bloginfo">
+        <p><%=Article[i].introduce%></p>
+      </div>
+      <div class="autor"><span class="lm"><a href="/class?id=<%=Article[i]._id%>" title="<%=Article[i].class%>" target="_blank" class="classname"><%if(Article[i].class.indexOf("专用") > 0 ){%><%='专题'%><%}else{%><%=Article[i].class%><%}%></a></span><span class="dtime"><%=Article[i].time%></span><span class="viewnum">浏览（<a href="/"><%=Article[i].click%></a>）</span><span class="readmore"><a href="/page?id=<%=Article[i]._id%>">阅读原文</a></span></div>
+    </li>
+    <%}%>
+
+  </div>
+  <div class="sidebar">
+    <div class="about">
+      <div class="avatar"> <img src="images/avatar.jpg" alt=""> </div>
+      <p class="abname">网名：大大</p>
+      <p class="abposition">职业：Web前端工程师、全栈网络工程师 </p>
+      <p class="abtext">Web前端设计师、网页设计</p>
+   </div>
+    <div class="search">
+
+    </div>
+    <div class="cloud">
+      <h2 class="hometitle">标签云</h2>
+      <ul>
+        <%for(var t in biaoqian){%>
+        <a href="/" class=""><%=biaoqian[t].title%></a>
+        <%}%>
+      </ul>
+    </div>
+    <div class="paihang">
+      <h2 class="hometitle">点击排行</h2>
+      <ul>
+        <%for(var y in phb){%>
+        <li><b><a href="/page?id=<%=phb[y]._id%>" class=" " target="_blank"><%=phb[y].title%></a></b>
+          <p><i><a href="/page?id=<%=phb[y]._id%>" class=" " target="_blank"><img src="<%=phb[y].img%>" width="100" height="90"></a></i><%=phb[y].introduce%></p>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+    <div class="paihang">
+      <h2 class="hometitle">站长推荐</h2>
+      <ul>
+        <%for(var i in Article){%>
+        <%if(i==5){break;}%>
+        <li><b><a href="/page?id=<%=Article[i]._id%>" class=" " target="_blank"><%=Article[i].title%></a></b>
+          <p><i><a href="/page?id=<%=Article[i]._id%>" class=" " target="_blank"><img src="<%=Article[i].img%>" width="110" height="90"></a></i><%=Article[i].introduce%></p>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+    <div class="links">
+      <h2 class="hometitle">友情链接</h2>
+      <ul>
+        <li><a href="https://www.qianduan.net/" class=" " title="前端观察">前端观察</a></li>
+        <li><a href="http://www.ruanyifeng.com/" class=" " title="阮一峰的网络日志">阮一峰的网络日志</a></li>
+        <li><a href="http://blog.cssforest.org/"  title="CSS森林">CSS森林</a></li>
+      </ul>
+    </div>
+    <div class="weixin">
+      <h2 class="hometitle">官方微信</h2>
+      <ul>
+        <img src="images/erweima.png">
+      </ul>
+    </div>
+  </div>
+</article>
+<div class="blank"></div>
+<footer class=" ">
+  <p>Design by <a href="/">大大博客</a> <a href="/"></a></p>
+</footer>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.moatext-min.js"></script>
+<script type="text/javascript" src="js/text.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>

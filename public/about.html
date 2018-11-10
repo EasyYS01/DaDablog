@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+  <title>首页_大大博客 - 一个走在前端之路的个人博客网站</title>
+  <meta name="keywords" content="个人博客,大大个人博客,前端,前端博客" />
+  <meta name="description" content="大大博客，是一个一个走在前端之路的个人博客网站，提供前端最新技术！" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/base.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <link href="css/m.css" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon.ico">
+
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<script>
+window.onload = function ()
+{
+	var oH2 = document.getElementsByTagName("h2")[0];
+	var oUl = document.getElementsByTagName("ul")[0];
+	oH2.onclick = function ()
+	{
+		var style = oUl.style;
+		style.display = style.display == "block" ? "none" : "block";
+		oH2.className = style.display == "block" ? "open" : ""
+	}
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="tophead">
+    <div class="logo"><a href="/">大大博客</a></div>
+    <div id="mnav">
+      <h2><span class="navicon"></span></h2>
+      <ul>
+        <li><a href="index.html">网站首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="list.html">学无止境</a></li>
+        <li><a href="info.html">个人技术栈</a></li>
+        <li><a href="gbook.html">留言</a></li>
+      </ul>
+    </div>
+    <nav class="topnav" id="topnav">
+      <ul>
+        <li><a href="index.html">网站首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="list.html">学无止境</a></li>
+        <li><a href="info.html">个人技术栈</a></li>
+        <li><a href="gbook.html">留言</a></li>
+        <li class="text" style="cursor:pointer;" onclick="textclick()">点我开启文字特效</li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<article>
+  <h1 class="t_nav"><span>像“草根”一样，紧贴着地面，低调的存在，冬去春来，枯荣无恙。</span><a href="/" class="n1">网站首页</a><a href="about.html" class="n2">关于我</a></h1>
+  <div class="ab_box">
+    <div class="leftbox">
+      <div class="newsview">
+        <div class="news_infos">
+          <p>闫硕，男，一个00后男站长！16年进入培训班培训。一直潜心研究web前端技术，且于18年5月开始一边工作一边积累经验，做一些小功能，以及一些心得。我入行较晚。<br />
+            <br />
+            在学习期间奋斗了将近两年时间，知识域也大大增加。期间有很多的不容易，但是都没有放弃过。入了这一行，就深深的喜欢上它。我喜欢一句话&ldquo;冥冥中该来则来，无处可逃&rdquo;。<br />
+            <br />
+            代码方面，我想说的是，一是&ldquo;代码&rdquo;，一定要简单，布局要合理。二是&ldquo;内容&rdquo;，一定要有原创，伪原创也是可以的。三是&ldquo;持续&rdquo;，这是一个持续性过程，一定要有耐心。<br />
+            <br />
+          <br />
+          <h2>About my blog</h2>
+          &nbsp;
+          <p>域 名：尚未备案 创建于2018年11月05日&nbsp;</p>
+          <br />
+          <p>服务器：阿里云服务器&nbsp;</p>
+          <br />
+          <p>程 序：Node.js</p>
+        </div>
+      </div>
+    </div>
+    <div class="rightbox">
+      <div class="aboutme">
+        <h2 class="hometitle">关于我</h2>
+        <div class="avatar"> <img src="images/avatar.jpg"> </div>
+        <div class="ab_con">
+          <p>网名：大大</p>
+          <p>职业：Web前端工程师、全栈网络工程师 </p>
+          <p>个人微信：as51271239</p>
+          <p>邮箱：1786764838@qq.com</p>
+        </div>
+      </div>
+      <div class="weixin">
+        <h2 class="hometitle">微信关注</h2>
+        <ul>
+          <img src="images/erweima.png">
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+<footer>
+  <p>Design by <a href="/">大大博客</a> <a href="/"></a></p>
+</footer>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.moatext-min.js"></script>
+<script type="text/javascript" src="js/text.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>
